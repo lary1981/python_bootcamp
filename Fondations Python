@@ -1,1 +1,60 @@
+# Dépôt GitHub - Formation Python orientée métiers (Data, Hacking, Réseau, Automatisation)
 
+## Structure du dépôt
+
+📁 /niveau_1_bases_python
+- `01_variables_types.py` : Déclaration de variables, types natifs (int, float, str, bool)
+- `02_conditions_boucles.py` : Conditions (`if/elif/else`), boucles (`for`, `while`)
+- `03_fichiers_csv.py` : Lecture/écriture de fichiers texte et CSV avec `open()` et `csv`
+- `04_generateur_mdp.py` : Générateur de mot de passe sécurisé avec `random`
+
+```python
+# 01_variables_types.py
+nom = "Alice"
+age = 30
+salaire = 2450.75
+est_actif = True
+
+print(f"Nom: {nom}, Age: {age}, Salaire: {salaire}, Actif: {est_actif}")
+```
+
+```python
+# 02_conditions_boucles.py
+age = int(input("Quel est votre âge ? "))
+if age >= 18:
+    print("Vous êtes majeur.")
+else:
+    print("Vous êtes mineur.")
+
+for i in range(5):
+    print("Répétition", i)
+```
+
+```python
+# 03_fichiers_csv.py
+import csv
+
+# Lecture d'un fichier CSV
+with open("ventes.csv", mode="r") as fichier:
+    lecteur = csv.reader(fichier)
+    for ligne in lecteur:
+        print(ligne)
+
+# Écriture dans un fichier
+with open("rapport.csv", mode="w", newline="") as fichier:
+    writer = csv.writer(fichier)
+    writer.writerow(["Nom", "Vente"])
+    writer.writerow(["Produit A", 150])
+```
+
+```python
+# 04_generateur_mdp.py
+import random
+import string
+
+def generer_mot_de_passe(longueur=12):
+    caracteres = string.ascii_letters + string.digits + string.punctuation
+    mot_de_passe = ''.join(random.choice(caracteres) for _ in range(longueur))
+    return mot_de_passe
+
+print("Mot de passe généré :", generer_mot_de_passe())
